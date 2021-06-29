@@ -25,7 +25,7 @@
 - (void)refreshData {
     User *user = self.tweet.user;
     self.authorLabel.text = user.name;
-    self.usernameLabel.text = user.screenName;
+    [NSString stringWithFormat:@"@%@", user.screenName];
     self.dateLabel.text = self.tweet.createdAtString;
     self.favLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];

@@ -83,7 +83,7 @@
     User *user = tweet.user;
     cell.tweet = tweet;
     cell.authorLabel.text = user.name;
-    cell.usernameLabel.text = user.screenName;
+    cell.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
     cell.dateLabel.text = tweet.createdAtString;
     cell.favLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
@@ -97,6 +97,11 @@
     [cell.profileImageView setImage:image];
     cell.favButton.selected = cell.tweet.favorited;
     cell.retweetButton.selected = cell.tweet.retweeted;
+    
+    [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateSelected];
+    [cell.retweetButton setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+    [cell.favButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateSelected];
+    [cell.favButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
 
     return cell;
 }
