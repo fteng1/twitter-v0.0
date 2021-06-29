@@ -95,6 +95,8 @@
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:urlData];
     [cell.profileImageView setImage:image];
+    cell.favButton.selected = cell.tweet.favorited;
+    cell.retweetButton.selected = cell.tweet.retweeted;
 
     return cell;
 }
