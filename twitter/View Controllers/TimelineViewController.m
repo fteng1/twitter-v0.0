@@ -14,6 +14,7 @@
 #import "TweetCell.h"
 #import "User.h"
 #import "ComposeViewController.h"
+#import "TweetDetailsViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
@@ -113,13 +114,23 @@
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+    // Bring up compose view if compose button is pressed
+    if ([[segue identifier] isEqualToString:@"ComposeViewController"]) {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+
+    // Bring up details view if tweet is tapped
+    if ([[segue identifier] isEqualToString:@"TweetDetailsViewController"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        
+        TweetDetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.tweet = tweet;
+    }
 }
 
 
