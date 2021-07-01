@@ -88,7 +88,7 @@
     cell.dateLabel.text = tweet.createdAtString;
     cell.favLabel.text = [NSString stringWithFormat:@"%d", tweet.favoriteCount];
     cell.retweetLabel.text = [NSString stringWithFormat:@"%d", tweet.retweetCount];
-    cell.tweetLabel.text = tweet.text;
+    cell.tweetTextView.text = tweet.text;
     
     // get profile image
     NSString *URLString = tweet.user.profilePicture;

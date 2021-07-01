@@ -19,6 +19,10 @@
     [self.favButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateSelected];
     [self.favButton setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
     
+    // resizes text view based on amount of text in tweet
+    self.tweetTextView.textContainer.heightTracksTextView = true;
+    self.tweetTextView.scrollEnabled = false;
+    
     [self refreshData];
 }
 
@@ -29,7 +33,7 @@
     self.dateLabel.text = self.tweet.createdAtString;
     self.favLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
-    self.tweetLabel.text = self.tweet.text;
+    self.tweetTextView.text = self.tweet.text;
     self.favButton.selected = self.tweet.favorited;
     self.retweetButton.selected = self.tweet.retweeted;
     

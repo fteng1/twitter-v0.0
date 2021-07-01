@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *numFavsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowersLabel;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
 @end
 
@@ -26,6 +28,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self refreshData];
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refreshData) forControlEvents:UIControlEventValueChanged];
+    [self.scrollView insertSubview:self.refreshControl atIndex:0];
 }
 
 - (void)refreshData {
@@ -35,7 +41,6 @@
             self.nameLabel.text = currentUser[@"name"];
             self.usernameLabel.text = [NSString stringWithFormat:@"@%@", currentUser[@"screen_name"]];
             self.descriptionLabel.text = currentUser[@"description"];
-            NSLog(@"%@", currentUser);
             self.numFavsLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"statuses_count"]];
             self.numFollowingLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"friends_count"]];
             self.numFollowersLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"followers_count"]];
@@ -46,6 +51,7 @@
             NSData *urlData = [NSData dataWithContentsOfURL:url];
             UIImage *image = [UIImage imageWithData:urlData];
             [self.profileImageView setImage:image];
+            [self.refreshControl endRefreshing];
 
         } else {
             NSLog(@"😫😫😫 Error getting profile data: %@", error.localizedDescription);
