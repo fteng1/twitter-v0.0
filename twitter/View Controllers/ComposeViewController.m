@@ -7,6 +7,7 @@
 //
 
 #import "ComposeViewController.h"
+#import <UITextView+Placeholder/UITextView+Placeholder.h>
 
 @interface ComposeViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
@@ -18,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    // set placeholder text
+    self.tweetTextView.placeholder = @"What's happening?";
+    self.tweetTextView.placeholderColor = [UIColor lightGrayColor];
 }
 
 - (IBAction)onTweetClick:(id)sender {

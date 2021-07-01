@@ -17,6 +17,7 @@
 		6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD278F520BCB68B0085BC29 /* APIManager.m */; };
 		6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790520BCC0380085BC29 /* LoginViewController.m */; };
 		6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD2790820BCC04D0085BC29 /* TimelineViewController.m */; };
+		700BD0B8268D2CF3002E63B6 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 700BD0B7268D2CF3002E63B6 /* ProfileViewController.m */; };
 		7084D99F268A676100E27363 /* Keys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7084D99E268A676100E27363 /* Keys.plist */; };
 		70869812268BB20B0099A71D /* ComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 70869811268BB20B0099A71D /* ComposeViewController.m */; };
 		70D1EC29268A755000F721BA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 70D1EC28268A755000F721BA /* User.m */; };
@@ -44,6 +45,8 @@
 		6AD2790520BCC0380085BC29 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		6AD2790720BCC04D0085BC29 /* TimelineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TimelineViewController.h; sourceTree = "<group>"; };
 		6AD2790820BCC04D0085BC29 /* TimelineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TimelineViewController.m; sourceTree = "<group>"; };
+		700BD0B6268D2CF3002E63B6 /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		700BD0B7268D2CF3002E63B6 /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		7084D99E268A676100E27363 /* Keys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Keys.plist; sourceTree = SOURCE_ROOT; };
 		70869810268BB20B0099A71D /* ComposeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComposeViewController.h; sourceTree = "<group>"; };
 		70869811268BB20B0099A71D /* ComposeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComposeViewController.m; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				6AD2790520BCC0380085BC29 /* LoginViewController.m */,
 				6AD2790720BCC04D0085BC29 /* TimelineViewController.h */,
 				6AD2790820BCC04D0085BC29 /* TimelineViewController.m */,
+				700BD0B6268D2CF3002E63B6 /* ProfileViewController.h */,
+				700BD0B7268D2CF3002E63B6 /* ProfileViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -291,6 +296,7 @@
 				6AD2790620BCC0380085BC29 /* LoginViewController.m in Sources */,
 				6AD278DA20BC4B950085BC29 /* AppDelegate.m in Sources */,
 				6AD278F620BCB68B0085BC29 /* APIManager.m in Sources */,
+				700BD0B8268D2CF3002E63B6 /* ProfileViewController.m in Sources */,
 				6AD2790920BCC04D0085BC29 /* TimelineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

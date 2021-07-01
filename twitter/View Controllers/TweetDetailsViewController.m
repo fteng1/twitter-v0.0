@@ -37,7 +37,7 @@
 - (void)refreshData {
     User *user = self.tweet.user;
     self.nameLabel.text = user.name;
-    [NSString stringWithFormat:@"@%@", user.screenName];
+    self.usernameLabel.text = [NSString stringWithFormat:@"@%@", user.screenName];
     self.dateLabel.text = self.tweet.createdAtString;
     self.favLabel.text = [NSString stringWithFormat:@"%d", self.tweet.favoriteCount];
     self.retweetLabel.text = [NSString stringWithFormat:@"%d", self.tweet.retweetCount];
@@ -135,6 +135,9 @@
         }];
 
     }
+}
+- (IBAction)onCloseTap:(id)sender {
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 /*

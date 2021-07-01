@@ -107,6 +107,11 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    // deselects cell in tableView after clicking on it
+    [tableView deselectRowAtIndexPath:indexPath animated:true];
+}
+
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
