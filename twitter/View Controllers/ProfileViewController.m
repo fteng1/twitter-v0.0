@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *numFavsLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numTweetsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numFollowersLabel;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
@@ -35,28 +35,35 @@
 }
 
 - (void)refreshData {
+    self.nameLabel.text = self.user.name;
+    self.usernameLabel.text = [NSString stringWithFormat:@"@%@", self.user.screenName];
+    self.descriptionLabel.text = self.user.tagline;
+    self.numTweetsLabel.text = [NSString stringWithFormat:@"%ld", self.user.numTweets];
+    self.numFollowingLabel.text = [NSString stringWithFormat:@"%ld", self.user.numFollowing];
+    self.numFollowersLabel.text = [NSString stringWithFormat:@"%ld", self.user.numFollowers];
+    
+    // get profile image
+    NSString *URLString = self.user.profilePicture;
+    NSURL *url = [NSURL URLWithString:URLString];
+    NSData *urlData = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:urlData];
+    [self.profileImageView setImage:image];
+    [self.refreshControl endRefreshing];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"hello");
     [[APIManager shared] getUserData:^(NSDictionary *currentUser, NSError *error) {
         if (currentUser) {
             NSLog(@"😎😎😎 Successfully loaded profile data");
-            self.nameLabel.text = currentUser[@"name"];
-            self.usernameLabel.text = [NSString stringWithFormat:@"@%@", currentUser[@"screen_name"]];
-            self.descriptionLabel.text = currentUser[@"description"];
-            self.numFavsLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"statuses_count"]];
-            self.numFollowingLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"friends_count"]];
-            self.numFollowersLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"followers_count"]];
-            
-            // get profile image
-            NSString *URLString = currentUser[@"profile_image_url_https"];
-            NSURL *url = [NSURL URLWithString:URLString];
-            NSData *urlData = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [UIImage imageWithData:urlData];
-            [self.profileImageView setImage:image];
-            [self.refreshControl endRefreshing];
+            self.user = [[User alloc] initWithDictionary:currentUser];
+
 
         } else {
             NSLog(@"😫😫😫 Error getting profile data: %@", error.localizedDescription);
         }
     }];
+    [self refreshData];
 }
 
 /*

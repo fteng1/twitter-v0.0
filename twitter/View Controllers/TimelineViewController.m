@@ -15,6 +15,7 @@
 #import "User.h"
 #import "ComposeViewController.h"
 #import "TweetDetailsViewController.h"
+#import "ProfileViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *logoutButton;
@@ -117,6 +118,10 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)onProfileTap:(id)sender {
+    [self performSegueWithIdentifier:@"viewOtherUser" sender:sender];
+}
+
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -135,6 +140,16 @@
         
         TweetDetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.tweet = tweet;
+    }
+    
+    // Bring up profile view if profile picture was tapped
+    if ([[segue identifier] isEqualToString:@"viewOtherUser"]) {
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        Tweet *tweet = self.arrayOfTweets[indexPath.row];
+        
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.user = tweet.user;
     }
 }
 

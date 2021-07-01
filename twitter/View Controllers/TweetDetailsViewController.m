@@ -8,6 +8,7 @@
 
 #import "TweetDetailsViewController.h"
 #import "APIManager.h"
+#import "ProfileViewController.h"
 
 @interface TweetDetailsViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
@@ -144,14 +145,20 @@
     [self dismissViewControllerAnimated:true completion:nil];
 }
 
-/*
+- (IBAction)onProfileTap:(id)sender {
+    [self performSegueWithIdentifier:@"viewOtherUserFromDetails" sender:sender];
+}
+
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    ProfileViewController *profileViewController = [segue destinationViewController];
+    profileViewController.user = self.tweet.user;
 }
-*/
+
 
 @end
