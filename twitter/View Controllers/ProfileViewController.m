@@ -36,7 +36,7 @@
             self.usernameLabel.text = [NSString stringWithFormat:@"@%@", currentUser[@"screen_name"]];
             self.descriptionLabel.text = currentUser[@"description"];
             NSLog(@"%@", currentUser);
-            self.numFavsLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"favourites_count"]];
+            self.numFavsLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"statuses_count"]];
             self.numFollowingLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"friends_count"]];
             self.numFollowersLabel.text = [NSString stringWithFormat:@"%@", currentUser[@"followers_count"]];
             

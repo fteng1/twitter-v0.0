@@ -63,18 +63,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="REV-ZS-r4w">
-                                <rect key="frame" x="20" y="66" width="350" height="690"/>
+                                <rect key="frame" x="20" y="86" width="350" height="670"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="280" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0D-jE-VSk">
+                                <rect key="frame" x="344.33333333333331" y="61" width="30.666666666666686" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6g1-TW-Tet"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="A0D-jE-VSk" firstAttribute="top" secondItem="6g1-TW-Tet" secondAttribute="top" constant="5" id="CV1-WU-HJA"/>
                             <constraint firstItem="REV-ZS-r4w" firstAttribute="leading" secondItem="6g1-TW-Tet" secondAttribute="leading" constant="20" id="JRw-98-uja"/>
-                            <constraint firstItem="REV-ZS-r4w" firstAttribute="top" secondItem="6g1-TW-Tet" secondAttribute="top" constant="10" id="SSg-ie-zRQ"/>
+                            <constraint firstItem="6g1-TW-Tet" firstAttribute="trailing" secondItem="A0D-jE-VSk" secondAttribute="trailing" constant="15" id="QsS-sR-p60"/>
+                            <constraint firstItem="REV-ZS-r4w" firstAttribute="top" secondItem="6g1-TW-Tet" secondAttribute="top" constant="30" id="SSg-ie-zRQ"/>
                             <constraint firstItem="6g1-TW-Tet" firstAttribute="bottom" secondItem="REV-ZS-r4w" secondAttribute="bottom" id="eyR-4F-uOh"/>
                             <constraint firstAttribute="trailing" secondItem="REV-ZS-r4w" secondAttribute="trailing" constant="20" id="wwI-S7-Bfr"/>
                         </constraints>
@@ -92,6 +100,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charactersLeftLabel" destination="A0D-jE-VSk" id="4EO-Mb-iO1"/>
                         <outlet property="tweetTextView" destination="REV-ZS-r4w" id="U7b-XV-UQd"/>
                     </connections>
                 </viewController>
@@ -284,7 +293,6 @@
         <!--Tweet Details View Controller-->
         <scene sceneID="Spp-oY-Mxk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="B3X-wm-YKP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="Tc7-Rq-OsK" customClass="TweetDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="btz-fl-Wc7">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
@@ -442,6 +450,7 @@
                         <outlet property="usernameLabel" destination="tQv-RD-Z9U" id="zWZ-d7-vcV"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3X-wm-YKP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3322" y="-314"/>
         </scene>
@@ -468,7 +477,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="U7x-Oe-aY8">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Btu-iv-pYj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabBarController" id="J6h-C0-z28" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="crA-9I-yze"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rGk-MC-bRs">
@@ -481,6 +489,7 @@
                         <segue destination="mU6-rg-8Pk" kind="relationship" relationship="viewControllers" id="vFF-7O-0RT"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Btu-iv-pYj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="278" y="-6"/>
         </scene>
@@ -505,8 +514,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="favorites" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94X-ft-5fr">
-                                <rect key="frame" x="46" y="258" width="66" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tweets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94X-ft-5fr">
+                                <rect key="frame" x="46" y="258" width="51" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>

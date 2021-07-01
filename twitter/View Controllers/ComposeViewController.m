@@ -9,8 +9,9 @@
 #import "ComposeViewController.h"
 #import <UITextView+Placeholder/UITextView+Placeholder.h>
 
-@interface ComposeViewController ()
+@interface ComposeViewController () <UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextView *tweetTextView;
+@property (weak, nonatomic) IBOutlet UILabel *charactersLeftLabel;
 
 @end
 
@@ -23,6 +24,8 @@
     // set placeholder text
     self.tweetTextView.placeholder = @"What's happening?";
     self.tweetTextView.placeholderColor = [UIColor lightGrayColor];
+    
+    self.tweetTextView.delegate = self;
 }
 
 - (IBAction)onTweetClick:(id)sender {
@@ -40,6 +43,10 @@
 
 - (IBAction)onCloseClick:(id)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)textViewDidChange:(UITextView *)textView {
+    self.charactersLeftLabel.text =[NSString stringWithFormat:@"%d", 280 - (int) [textView.text length]];
 }
 
 /*
