@@ -73,7 +73,6 @@ GIF created with [EzGif.com](https://ezgif.com/).
 
 ## Notes
 
-Describe any challenges encountered while building the app.
 - Had issues with GitHub uploading Keys.plist, which was resolved by eventually deleting it from all previous commits. 
 - Had issue with data not appearing in the TableView, which was caused by not setting self.tableView.delegate and self.tableView.dataSource, as well as erroneously calling initWithDictionary when it was already called previously.
 - Favorite and retweet button did not update immediately after the app started, which required moving the update code into TimelineViewController.m.
@@ -81,8 +80,6 @@ Describe any challenges encountered while building the app.
 - Using autolayout was difficult, and required deleting all the constraints and starting over several times. 
 
 ## Credits
-
-List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 - BDBOAuth1Manager - user authentication library
