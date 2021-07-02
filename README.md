@@ -2,7 +2,7 @@
 
 **Twitter v0.0** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com/).
 
-Time spent: **10** hours spent in total
+Time spent: **15** hours spent in total
 
 ## User Stories
 
@@ -28,7 +28,7 @@ The following **optional** features are implemented:
   - [ ] Profile view should include that user's timeline
 - [x] User should be able to unretweet and unfavorite and should decrement the retweet and favorite count. Refer to [[this guide|unretweeting]] for help on implementing unretweeting.
 - [x] Links in tweets are clickable.
-- [ ] User can tap the profile image in any tweet to see another user's profile
+- [x] User can tap the profile image in any tweet to see another user's profile
   - Contains the user header view: picture and tagline
   - Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] User can load more tweets once they reach the bottom of the feed using infinite loading similar to the actual Twitter client.
@@ -53,9 +53,23 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+Required user stories: 
 
-GIF created with [Kap](https://getkap.co/).
+![](https://i.imgur.com/Vlk4vsH.gif)
+
+Optional user stories: 
+
+![](https://i.imgur.com/fyDbI8s.gif)
+
+Rotated device: 
+
+![](https://i.imgur.com/LNCm46D.png)
+
+Different screen sizes:
+
+![](https://i.imgur.com/wwRl2fc.jpg)
+
+GIF created with [EzGif.com](https://ezgif.com/).
 
 ## Notes
 
@@ -64,6 +78,7 @@ Describe any challenges encountered while building the app.
 - Had issue with data not appearing in the TableView, which was caused by not setting self.tableView.delegate and self.tableView.dataSource, as well as erroneously calling initWithDictionary when it was already called previously.
 - Favorite and retweet button did not update immediately after the app started, which required moving the update code into TimelineViewController.m.
 - Tab bar did not show up until logout and logging back into the app. Needed to switch the load-in view upon successful sign in in AppDelegate.m.
+- Using autolayout was difficult, and required deleting all the constraints and starting over several times. 
 
 ## Credits
 
